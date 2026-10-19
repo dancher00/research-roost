@@ -1,0 +1,120 @@
+from __future__ import annotations
+import json, runpy, sys
+from datetime import date
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from threading import Thread
+from urllib.robotparser import RobotFileParser
+
+REPO = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(REPO))
+from phd_search import assessment as assess, applications as apps, sources
+from phd_search.core import Error, atomic_write, digest, json_text, read_json
+from phd_search.evidence import ingest_file
+from phd_search.network import Client
+
+D = runpy.run_path(str(REPO/'tests/test_workflows.py'))
+C, fixture = D['WorkspaceCase'], D['FIXTURE']
+results = {}
+
+def fresh(case):
+    c=C();c.setUp()
+    try: return case(c)
+    finally: c.doCleanups()
+
+def stale(c):
+    c.candidate['preferences']['require_full_funding']=True
+    old=c.base/'old.html'
+    old.write_text(fixture.read_text().replace('Full tuition and a monthly stipend are covered.','This position is self-funded.'))
+    c.record=ingest_file(c.store,old,c.record['url'],mode='html')
+    annotation=c.annotations()
+    annotation['values']['funding']={'status':'self_funded'}
+    annotation['evidence']['funding']['quote']='This position is self-funded.'
+    assess.validate_annotations(c.store,c.record['id'],annotation)
+    current=ingest_file(c.store,fixture,c.record['url'],mode='html')
+    verdict=assess.screen(current,c.candidate)
+    return {'current_source_contains_full_funding':'Full tuition and a monthly stipend are covered.' in (c.root/current['snapshot']['text_path']).read_text(),
+        'gates':[g for g in verdict['gates'] if g['name'] in ('funding','annotations_current')],
+        'rank_results':len(assess.rank_all(c.store,c.candidate))}
+results['stale_annotations']=fresh(stale)
+
+def external(c):
+    evidence=c.root/'research/external.txt';evidence.write_text('The programme provides archival training.')
+    packet=assess.assessment_template(c.record,c.candidate);packet['assessor']='review reproduction'
+    packet['dimensions']['environment'].update(score=5,reason='External programme evidence.',external_evidence=[{'file':'research/external.txt','sha256':digest(evidence.read_bytes()),'quote':'archival training','url':'https://university.example/training'}])
+    before=assess.save_assessment(c.store,c.record['id'],c.candidate,packet)
+    evidence.unlink();after=assess.ranking(c.store.get(c.record['id']),c.candidate,root=c.root)
+    return {'before':{k:before[k] for k in ('assessment_state','coverage','score_interval')},'after_deletion':{k:after[k] for k in ('assessment_state','coverage','score_interval')}}
+results['external_assessment_evidence']=fresh(external)
+
+def archive(c):
+    app=c.reviewed_application();today=date.today().isoformat()
+    apps.transition(c.store,app['id'],'drafted',occurred_on=today,note='reviewed')
+    sub=apps.transition(c.store,app['id'],'submitted',occurred_on=today,note='user-confirmed receipt')
+    base=c.root/sub['data']['submission']['archive'];frozen=read_json(base/'profile.snapshot.json')
+    frozen['facts'][0]['claim']='I won an award that does not exist.'
+    atomic_write(base/'profile.snapshot.json',json_text(frozen))
+    try:
+        packet=apps.interview_packet(c.store,app['id'])
+    except Error as exc:
+        return {'rejected':True,'error':str(exc),'tampered_fact_used':False,
+            'manifest_digest_disagrees':read_json(base/'manifest.json')['files']['profile.snapshot.json']!=digest((base/'profile.snapshot.json').read_bytes())}
+    return {'basis':packet['basis'],'tampered_fact_used':'I won an award that does not exist.' in Path(packet['path']).read_text(),
+        'manifest_digest_disagrees':read_json(base/'manifest.json')['files']['profile.snapshot.json']!=digest((base/'profile.snapshot.json').read_bytes())}
+results['submitted_archive']=fresh(archive)
+
+parser=RobotFileParser();parser.parse(['User-agent: *','Disallow: /jobs/','Allow: /jobs/public/'])
+url='https://university.example/jobs/public/phd-123';client=Client(Path('/tmp/phd-review-unused'))
+client.robots['https://university.example']=parser
+try: client.check_robots(url);decision='allowed'
+except Exception as exc: decision=type(exc).__name__+': '+str(exc)
+results['robots_longest_allow']={'proper_longest_match':client._wildcard_allowed(parser,url),'actual':decision}
+
+state={'expired':False};requests=[]
+class Handler(BaseHTTPRequestHandler):
+    def log_message(self,*args):pass
+    def do_GET(self):
+        requests.append({'path':self.path,'if_none_match':self.headers.get('If-None-Match')})
+        if self.path=='/robots.txt':body=b'User-agent: *\nAllow: /\n';self.send_response(200)
+        elif self.path=='/job/1' and state['expired']:
+            self.send_response(302);self.send_header('Location','/search');self.end_headers();return
+        elif self.path=='/search' and self.headers.get('If-None-Match')=='"v1"':
+            self.send_response(304);self.end_headers();return
+        elif self.path=='/cachelist':body=b'<html><a href="/job/1">Doctoral offer</a></html>';self.send_response(200)
+        elif self.path=='/badlist':body=b'<html><a href="/badjob/1">Malformed external advert</a></html>';self.send_response(200)
+        elif self.path=='/goodlist':body=b'<html><a href="/goodjob/1">Good external advert</a></html>';self.send_response(200)
+        elif self.path=='/badjob/1':
+            body=b'<html><script type="application/ld+json">{"@type":"JobPosting","title":"Doctoral offer","validThrough":["2099-01-01"]}</script><h1>Doctoral offer</h1></html>';self.send_response(200)
+        else:
+            body=b'<html><h1>Doctoral offer</h1></html>';self.send_response(200);self.send_header('ETag','"v1"')
+        self.send_header('Content-Type','text/html');self.end_headers();self.wfile.write(body)
+server=ThreadingHTTPServer(('127.0.0.1',0),Handler);thread=Thread(target=server.serve_forever,daemon=True);thread.start()
+origin=f'http://127.0.0.1:{server.server_port}'
+try:
+    with TemporaryDirectory(prefix='phd-review-cache-') as directory:
+        client=Client(Path(directory),allow_private=True,interval=0)
+        before=client.get(origin+'/job/1');state['expired']=True;after=client.get(origin+'/job/1')
+        results['redirected_304']={'returned_url':after.url,'requested_url':after.requested_url,'cached':after.cached,'body':after.text,'server_saw':list(requests)}
+    def cached_scrape(c):
+        state['expired']=False;requests.clear()
+        registry={'schema_version':1,'sources':[{'id':'cache','kind':'html','url':origin+'/cachelist','link_pattern':'/job/[0-9]+$'}]}
+        atomic_write(c.root/'sources.json',json_text(registry))
+        client=Client(c.root,allow_private=True,interval=0)
+        first=sources.scrape(c.store,client,sources=None,query='',limit=3,pages=1)
+        state['expired']=True
+        second=sources.scrape(c.store,client,sources=None,query='',limit=3,pages=1)
+        return {'first_status':first['sources'][0]['status'],'expired_detail_status':second['sources'][0]['status'],'expired_detail_matches':second['matches'],'errors':second['sources'][0]['errors'],'server_saw':list(requests)}
+    results['redirected_304_full_scrape']=fresh(cached_scrape)
+    def malformed(c):
+        requests.clear()
+        registry={'schema_version':1,'sources':[{'id':'bad','kind':'html','url':origin+'/badlist','link_pattern':'/badjob/[0-9]+$'}, {'id':'good','kind':'html','url':origin+'/goodlist','link_pattern':'/goodjob/[0-9]+$'}]}
+        atomic_write(c.root/'sources.json',json_text(registry))
+        try:
+            outcome=sources.scrape(c.store,Client(c.root,allow_private=True,interval=0),sources=None,query='',limit=3,pages=1)
+            failure={'result':outcome}
+        except Exception as exc: failure={'error_type':type(exc).__name__,'error':str(exc)}
+        return {**failure,'good_source_was_requested':any(r['path']=='/goodlist' for r in requests),'scrape_runs_saved':c.store.db.execute("SELECT COUNT(*) FROM runs WHERE kind='scrape'").fetchone()[0],'server_saw':list(requests)}
+    results['malformed_source_aborts_independent_sources']=fresh(malformed)
+finally:server.shutdown();server.server_close()
+print(json.dumps(results,indent=2))

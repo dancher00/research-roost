@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research-roost"
+version = "0.2.0a1"
+description = "Research Roost: source-backed PhD discovery and application workspace"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+dependencies = []
+
+[project.optional-dependencies]
+pdf = ["pypdf>=5,<7"]
+
+[project.scripts]
+research-roost = "phd_search.cli:main"
+phd-search = "phd_search.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["phd_search*", "research_roost*"]
+
+[tool.setuptools.package-data]
+phd_search = ["resources/*.json", "resources/templates/*", "resources/workflows/*.md", "vendor/LICENSE"]
+
+[tool.ruff]
+target-version = "py311"
+extend-exclude = ["help", "workspace", "build", "phd_search/vendor", "tools/verify_pdf.py", "tools/verify_layout.py"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"tools/*.py" = ["E402"]

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "identity": {"name": "", "email": "", "location": "", "timezone": "UTC", "orcid": "", "website": "", "cv_language": "en"},
+  "research": {"topics": [], "methods": [], "keywords": [], "excluded_topics": [], "questions": [], "statement": ""},
+  "education": [],
+  "experience": [],
+  "outputs": [],
+  "skills": [],
+  "languages": [],
+  "preferences": {
+    "countries": [], "excluded_countries": [], "opportunity_types": [],
+    "require_full_funding": null, "minimum_funding": null,
+    "start_after": null, "start_before": null,
+    "availability": [], "duration_days": null,
+    "return_to_study": null, "work_authorization": null, "home_approval": null,
+    "citizenships": [], "residence_history": [], "constraints": [],
+    "document_language": "en", "followup_after_days": 14
+  },
+  "facts": [],
+  "notes": "No discipline, nationality, degree, funding preference or eligibility is inferred. Confirm candidate claims with source-linked facts."
+}

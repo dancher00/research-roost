@@ -1,0 +1,110 @@
+{
+  "checked_at": "2026-10-19T16:37:23+00:00",
+  "evidence_workspace": "/tmp/phd-search-live-final-v1",
+  "health": [
+    {
+      "bytes": 179297,
+      "fetched_at": "2026-10-19T16:37:26+00:00",
+      "id": "euraxess",
+      "links": 10,
+      "query_mode": "local",
+      "state": "ok",
+      "url": "https://euraxess.ec.europa.eu/jobs/search?f%5B0%5D=job_research_profile%3A447"
+    },
+    {
+      "checked_at": "2026-10-19T16:37:27+00:00",
+      "id": "academicpositions",
+      "reason": "Fetch failed for https://academicpositions.com/jobs/position/phd: HTTP Error 403: Forbidden",
+      "state": "unavailable"
+    },
+    {
+      "bytes": 300251,
+      "fetched_at": "2026-10-19T16:37:29+00:00",
+      "id": "jobs-ac-uk",
+      "links": 25,
+      "query_mode": "local",
+      "state": "ok",
+      "url": "https://www.jobs.ac.uk/search/?jobTypeFacet%5B%5D=phds"
+    }
+  ],
+  "ingested": [
+    {
+      "country": "United Kingdom",
+      "deadline": {
+        "precision": "date",
+        "raw": "15th November 2026",
+        "timezone": null,
+        "value": "2026-11-15"
+      },
+      "description_characters": 4571,
+      "id": "5c865836960ae8b4",
+      "institution": "Northeastern University London",
+      "method": "jsonld",
+      "sha256": "0bdaa11306a25a2f478cbdf2f46cec4f520a774acff46df8d1495748566eee07",
+      "title": "PhD Studentship in Computer Science - Algorithms/Hardware Co-Design for Bayesian and Ising Models (Fully Funded)",
+      "url": "https://www.jobs.ac.uk/job/DTI287/phd-studentship-in-computer-science-algorithms-hardware-co-design-for-bayesian-and-ising-models-fully-funded"
+    }
+  ],
+  "scope": "Discovery for three boards and at most one detail attempt for each enabled direct source; not exhaustive compatibility",
+  "scrape": {
+    "created_at": "2026-10-19T16:37:33+00:00",
+    "matches": [
+      {
+        "id": "5c865836960ae8b4",
+        "title": "PhD Studentship in Computer Science - Algorithms/Hardware Co-Design for Bayesian and Ising Models (Fully Funded)",
+        "url": "https://www.jobs.ac.uk/job/DTI287/phd-studentship-in-computer-science-algorithms-hardware-co-design-for-bayesian-and-ising-models-fully-funded"
+      }
+    ],
+    "query": "",
+    "sources": [
+      {
+        "attempted": 1,
+        "coverage": "bounded_sample",
+        "discovered": 10,
+        "errors": [
+          {
+            "message": "Posting redirected to a different page; original identity is not established: https://euraxess.ec.europa.eu/jobs/473916 → https://euraxess.ec.europa.eu/jobs/search",
+            "stage": "detail",
+            "url": "https://euraxess.ec.europa.eu/jobs/473916"
+          }
+        ],
+        "matches": [],
+        "not_an_exhaustive_search": true,
+        "pages": [
+          {
+            "bytes": 179297,
+            "fetched_at": "2026-10-19T16:37:30+00:00",
+            "query_mode": "local",
+            "url": "https://euraxess.ec.europa.eu/jobs/search?f%5B0%5D=job_research_profile%3A447"
+          }
+        ],
+        "source": "euraxess",
+        "status": "partial",
+        "stored": []
+      },
+      {
+        "attempted": 1,
+        "coverage": "bounded_sample",
+        "discovered": 25,
+        "errors": [],
+        "matches": [
+          "5c865836960ae8b4"
+        ],
+        "not_an_exhaustive_search": true,
+        "pages": [
+          {
+            "bytes": 300251,
+            "fetched_at": "2026-10-19T16:37:32+00:00",
+            "query_mode": "local",
+            "url": "https://www.jobs.ac.uk/search/?jobTypeFacet%5B%5D=phds"
+          }
+        ],
+        "source": "jobs-ac-uk",
+        "status": "ok",
+        "stored": [
+          "5c865836960ae8b4"
+        ]
+      }
+    ]
+  }
+}

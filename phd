@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+RESEARCH_ROOST_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+export PYTHONPATH="$RESEARCH_ROOST_ROOT${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m phd_search --workspace "${RESEARCH_ROOST_WORKSPACE:-${PHD_SEARCH_WORKSPACE:-$RESEARCH_ROOST_ROOT/workspace}}" "$@"

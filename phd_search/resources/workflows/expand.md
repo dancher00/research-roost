@@ -1,0 +1,8 @@
+# /expand — evidence-based profile enrichment
+
+1. Load the confirmed profile and document registry. Identify missing descriptions, contribution details, methods, outputs, awards, courses or professional/practice evidence relevant to target opportunities. Do not copy claims from previous tailored applications back into the master profile.
+2. Inspect registered materials and public sources the user supplied/linked, such as an institutional page, ORCID, publication DOI, portfolio, repository or project page. Do not automatically upload private papers, transcripts or correspondence. Verify source identity, currentness, authorship, contribution and publication status.
+3. Extract candidate fact proposals with exact source locators and limitations. A course syllabus establishes course content, not that the candidate mastered every topic. A repository's dependency list does not establish personal expertise; coauthorship does not establish leadership or all experimental work.
+4. Present a compact confirmation batch where source attribution or personal contribution is ambiguous. Continue organising independent evidence while waiting. Record only confirmed facts in `profile.json`; unresolved proposals stay in notes/a separate review file and do not enter CV claims.
+5. Use `profile fact` for new confirmed claims or `profile import` for structured updates with backups. Correct all conflicting master fields together. Mark unsupported claims for clarification instead of silently strengthening them.
+6. Run validation and explain which assessments/application variants became stale. Preserve submitted archives. Return a source-linked change summary and any remaining questions; then resume the user's authorised search/application task.

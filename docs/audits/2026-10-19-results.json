@@ -1,0 +1,127 @@
+{
+  "stale_annotations": {
+    "current_source_contains_full_funding": true,
+    "gates": [
+      {
+        "name": "funding",
+        "state": "fail",
+        "reason": "Funding is self_funded"
+      },
+      {
+        "name": "annotations_current",
+        "state": "unknown",
+        "reason": "Posting changed after annotations; verify requirements and funding again"
+      }
+    ],
+    "rank_results": 0
+  },
+  "external_assessment_evidence": {
+    "before": {
+      "assessment_state": "current",
+      "coverage": 5,
+      "score_interval": [
+        5.0,
+        100.0
+      ]
+    },
+    "after_deletion": {
+      "assessment_state": "current",
+      "coverage": 5,
+      "score_interval": [
+        5.0,
+        100.0
+      ]
+    }
+  },
+  "submitted_archive": {
+    "basis": "submitted_archive",
+    "tampered_fact_used": true,
+    "manifest_digest_disagrees": true
+  },
+  "robots_longest_allow": {
+    "proper_longest_match": true,
+    "actual": "Error: robots.txt disallows this URL: https://university.example/jobs/public/phd-123"
+  },
+  "redirected_304": {
+    "returned_url": "http://127.0.0.1:35485/job/1",
+    "requested_url": "http://127.0.0.1:35485/job/1",
+    "cached": true,
+    "body": "<html><h1>Doctoral offer</h1></html>",
+    "server_saw": [
+      {
+        "path": "/robots.txt",
+        "if_none_match": null
+      },
+      {
+        "path": "/job/1",
+        "if_none_match": null
+      },
+      {
+        "path": "/job/1",
+        "if_none_match": "\"v1\""
+      },
+      {
+        "path": "/search",
+        "if_none_match": "\"v1\""
+      }
+    ]
+  },
+  "redirected_304_full_scrape": {
+    "first_status": "ok",
+    "expired_detail_status": "ok",
+    "expired_detail_matches": [
+      {
+        "id": "b4c2f22733698330",
+        "title": "Doctoral offer",
+        "url": "http://127.0.0.1:35485/job/1"
+      }
+    ],
+    "errors": [],
+    "server_saw": [
+      {
+        "path": "/robots.txt",
+        "if_none_match": null
+      },
+      {
+        "path": "/cachelist",
+        "if_none_match": null
+      },
+      {
+        "path": "/job/1",
+        "if_none_match": null
+      },
+      {
+        "path": "/cachelist",
+        "if_none_match": null
+      },
+      {
+        "path": "/job/1",
+        "if_none_match": "\"v1\""
+      },
+      {
+        "path": "/search",
+        "if_none_match": "\"v1\""
+      }
+    ]
+  },
+  "malformed_source_aborts_independent_sources": {
+    "error_type": "AttributeError",
+    "error": "'list' object has no attribute 'strip'",
+    "good_source_was_requested": false,
+    "scrape_runs_saved": 0,
+    "server_saw": [
+      {
+        "path": "/robots.txt",
+        "if_none_match": null
+      },
+      {
+        "path": "/badlist",
+        "if_none_match": null
+      },
+      {
+        "path": "/badjob/1",
+        "if_none_match": null
+      }
+    ]
+  }
+}

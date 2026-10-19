@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "euraxess",
+      "name": "EURAXESS — First Stage Researcher (R1)",
+      "kind": "html",
+      "enabled": true,
+      "url": "https://euraxess.ec.europa.eu/jobs/search?f%5B0%5D=job_research_profile%3A447",
+      "link_pattern": "euraxess\\.ec\\.europa\\.eu/jobs/[0-9]+(?:$|[?])",
+      "verified_on": "2026-10-19",
+      "verification": "R1 facet URL observed on the primary search page; direct unfiltered listing returned HTTP 200, filtered access requires runtime health verification",
+      "notes": "R1 includes opportunities other than doctoral admission. Query is applied locally to fetched details; listing coverage is bounded. Do not label all R1 offers PhD positions.",
+      "families": [
+        "phd"
+      ]
+    },
+    {
+      "id": "academicpositions",
+      "name": "Academic Positions — PhD",
+      "kind": "html",
+      "enabled": true,
+      "url": "https://academicpositions.com/jobs/position/phd",
+      "link_pattern": "academicpositions\\.com/ad/",
+      "verified_on": "2026-10-19",
+      "verification": "Primary page visible in web search/browser; direct CLI request returned HTTP 403",
+      "notes": "HTML adapter supports accessible public pages. If blocked, use agent web search/browser and import specific postings; never treat a 403 as zero opportunities.",
+      "families": [
+        "phd"
+      ]
+    },
+    {
+      "id": "jobs-ac-uk",
+      "name": "jobs.ac.uk — PhD studentships",
+      "kind": "html",
+      "enabled": true,
+      "url": "https://www.jobs.ac.uk/search/?jobTypeFacet%5B%5D=phds",
+      "link_pattern": "www\\.jobs\\.ac\\.uk/job/[A-Za-z0-9]+/",
+      "verified_on": "2026-10-19",
+      "verification": "Search and PhD facet observed on primary site; robots readable; runtime adapter health is reported separately",
+      "notes": "Local query filtering after detail fetch. Check international fee coverage and home/international restrictions explicitly.",
+      "families": [
+        "phd"
+      ]
+    },
+    {
+      "id": "findaphd",
+      "name": "FindAPhD",
+      "kind": "html",
+      "enabled": false,
+      "url": "https://www.findaphd.com/phds/",
+      "link_pattern": "www\\.findaphd\\.com/phds/project/",
+      "verified_on": "2026-10-19",
+      "verification": "Primary listing and robots checked. Query URLs /phds/?* are disallowed; plain listing is separate",
+      "notes": "Disabled by default. Never add a query-string search URL that robots disallows. Use the agent search plan and manually import accessible project pages.",
+      "families": [
+        "phd"
+      ]
+    },
+    {
+      "id": "university-search",
+      "name": "Official university, doctoral school and department sites",
+      "kind": "discovery",
+      "enabled": false,
+      "url": "https://www.google.com/search?q={query}",
+      "notes": "Browser/search-engine query handoff only; no Google scraping. Use official vacancy, admissions and funding pages. Register individual public HTML/RSS/JSON sources after inspecting their real interface.",
+      "families": [
+        "phd",
+        "internship",
+        "school"
+      ]
+    },
+    {
+      "id": "msr-internships",
+      "name": "Microsoft Research — research internships",
+      "kind": "discovery",
+      "enabled": true,
+      "families": [
+        "internship"
+      ],
+      "url": "https://www.microsoft.com/en-us/research/careers/",
+      "verified_on": "2026-10-19",
+      "verification": "Official page inspected through web/browser; explicit browser handoff, not a tested automatic listing/detail adapter.",
+      "notes": "Official careers and internship entry point. Select a current research internship detail; do not import the mixed careers page as a single opportunity. Roles and eligibility vary."
+    },
+    {
+      "id": "epfl-e3",
+      "name": "EPFL E3 — research internships",
+      "kind": "discovery",
+      "enabled": true,
+      "families": [
+        "internship"
+      ],
+      "url": "https://eee.epfl.ch/",
+      "verified_on": "2026-10-19",
+      "verification": "Official page inspected through web/browser; explicit browser handoff, not a tested automatic listing/detail adapter.",
+      "notes": "Official programme entry point. Bachelor/master enrollment restrictions and exclusion of current PhD students require source-backed screening; do not infer eligibility from research fit."
+    },
+    {
+      "id": "kaust-vsrp",
+      "name": "KAUST — Visiting Student Research Program",
+      "kind": "discovery",
+      "enabled": true,
+      "families": [
+        "internship"
+      ],
+      "url": "https://admissions.kaust.edu.sa/study/internships",
+      "verified_on": "2026-10-19",
+      "verification": "Official page inspected through web/browser; explicit browser handoff, not a tested automatic listing/detail adapter.",
+      "notes": "Official programme entry point. Verify the actual project, cycle, current student status, excluded levels and support terms separately."
+    },
+    {
+      "id": "essex-methods-school",
+      "name": "Essex — Social Science Data Analysis",
+      "kind": "discovery",
+      "enabled": true,
+      "families": [
+        "school"
+      ],
+      "url": "https://www.essex.ac.uk/short-courses/social-science-data-analysis",
+      "verified_on": "2026-10-19",
+      "verification": "Official page inspected through web/browser; explicit browser handoff, not a tested automatic listing/detail adapter.",
+      "notes": "Official methods school with multiple sessions and study modes. The inspected 2027 call is upcoming, not currently open; verify current edition, session, prerequisites and separate fees/payment deadlines."
+    },
+    {
+      "id": "vienna-winter-school",
+      "name": "University of Vienna — Winter School",
+      "kind": "discovery",
+      "enabled": true,
+      "families": [
+        "school"
+      ],
+      "url": "https://shs.univie.ac.at/winter-school/",
+      "verified_on": "2026-10-19",
+      "verification": "Official page inspected through web/browser; explicit browser handoff, not a tested automatic listing/detail adapter.",
+      "notes": "Official humanities winter-school entry point. Verify edition, event dates, admission and scholarship deadlines on the applicable official subpages; do not reuse older-cycle funding dates."
+    }
+  ]
+}

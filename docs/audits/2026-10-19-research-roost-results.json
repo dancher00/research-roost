@@ -1,0 +1,1908 @@
+{
+  "brand": "Research Roost",
+  "version": "0.2.0a1",
+  "observed_on": "2026-10-19",
+  "python": "3.12.3",
+  "regression_suite": {
+    "status": "PASS",
+    "tests": 182,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 52.026
+  },
+  "new_mode_cli_check": {
+    "state": "PASS",
+    "passed": 56,
+    "failed": 0,
+    "cli_commands": 121,
+    "scenarios": 11,
+    "seconds": 10.535,
+    "review_scope": "New fixtures and public CLI only. Eligibility/storage/export/application code by other contributors; discovery/workflow author is this reviewer. No claim of whole-product author independence, PDF validation or scientific quality."
+  },
+  "new_mode_checks": [
+    {
+      "name": "current_doctorate_excludes_despite_older_master",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "internship",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          },
+          {
+            "name": "enrollment:excluded_levels",
+            "reason": "Compared confirmed enrollment now and during the recorded participation interval, independently of awarded qualifications; unclear institutional reference dates require review",
+            "state": "fail"
+          },
+          {
+            "name": "enrollment:allowed_levels",
+            "reason": "Current enrollment must match the permitted programme levels; a higher awarded degree is not a substitute",
+            "state": "fail"
+          },
+          {
+            "name": "duration",
+            "reason": "Exact inclusive calendar days are compared where sourced; months are not converted into invented day counts",
+            "state": "unknown"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "fail"
+      }
+    },
+    {
+      "name": "enrollment_ending_before_placement_is_fail",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "internship",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          },
+          {
+            "name": "enrollment:allowed_levels",
+            "reason": "Current enrollment must match the permitted programme levels; a higher awarded degree is not a substitute",
+            "state": "pass"
+          },
+          {
+            "name": "enrollment:through_end",
+            "reason": "Confirmed enrollment dates must cover the complete participation interval; missing end dates do not prove continued enrollment",
+            "state": "fail"
+          },
+          {
+            "name": "duration",
+            "reason": "Exact inclusive calendar days are compared where sourced; months are not converted into invented day counts",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "fail"
+      }
+    },
+    {
+      "name": "missing_enrollment_end_is_unknown_not_pass",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "internship",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          },
+          {
+            "name": "enrollment:allowed_levels",
+            "reason": "Current enrollment must match the permitted programme levels; a higher awarded degree is not a substitute",
+            "state": "pass"
+          },
+          {
+            "name": "enrollment:through_end",
+            "reason": "Confirmed enrollment dates must cover the complete participation interval; missing end dates do not prove continued enrollment",
+            "state": "unknown"
+          },
+          {
+            "name": "duration",
+            "reason": "Exact inclusive calendar days are compared where sourced; months are not converted into invented day counts",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "unknown"
+      }
+    },
+    {
+      "name": "fee_waiver_alone_never_full_support_pass",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "school",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "funding",
+            "reason": "Source-backed coverage or explicit non-applicability is required for tuition, registration, living, accommodation and travel",
+            "state": "unknown"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "unknown"
+      }
+    },
+    {
+      "name": "tuition_not_applicable_plus_full_relevant_support_passes",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "school",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "funding",
+            "reason": "Source-backed participation costs are covered or explicitly not applicable; award eligibility and availability remain separate",
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "pass"
+      }
+    },
+    {
+      "name": "unknown_permissions_and_return_to_study_do_not_pass",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "internship",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          },
+          {
+            "name": "return_to_study",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "unknown"
+          },
+          {
+            "name": "work_authorization",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "unknown"
+          },
+          {
+            "name": "home_approval",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "unknown"
+          },
+          {
+            "name": "duration",
+            "reason": "Exact inclusive calendar days are compared where sourced; months are not converted into invented day counts",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "unknown"
+      }
+    },
+    {
+      "name": "confirmed_permissions_and_full_availability_pass",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "internship",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          },
+          {
+            "name": "return_to_study",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "pass"
+          },
+          {
+            "name": "work_authorization",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "pass"
+          },
+          {
+            "name": "home_approval",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "pass"
+          },
+          {
+            "name": "availability",
+            "reason": "Participation dates must fit wholly inside confirmed availability intervals",
+            "state": "pass"
+          },
+          {
+            "name": "duration",
+            "reason": "Exact inclusive calendar days are compared where sourced; months are not converted into invented day counts",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "pass"
+      }
+    },
+    {
+      "name": "partial_availability_does_not_satisfy_whole_placement",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "internship",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          },
+          {
+            "name": "return_to_study",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "pass"
+          },
+          {
+            "name": "work_authorization",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "pass"
+          },
+          {
+            "name": "home_approval",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "pass"
+          },
+          {
+            "name": "availability",
+            "reason": "Participation dates must fit wholly inside confirmed availability intervals",
+            "state": "fail"
+          },
+          {
+            "name": "duration",
+            "reason": "Exact inclusive calendar days are compared where sourced; months are not converted into invented day counts",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "fail"
+      }
+    },
+    {
+      "name": "confirmed_missing_required_work_permission_fails",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "internship",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          },
+          {
+            "name": "return_to_study",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "pass"
+          },
+          {
+            "name": "work_authorization",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "fail"
+          },
+          {
+            "name": "home_approval",
+            "reason": "Requires an explicit source-linked candidate confirmation for this route and applicable dates; nationality is not work authorization",
+            "state": "pass"
+          },
+          {
+            "name": "availability",
+            "reason": "Participation dates must fit wholly inside confirmed availability intervals",
+            "state": "pass"
+          },
+          {
+            "name": "duration",
+            "reason": "Exact inclusive calendar days are compared where sourced; months are not converted into invented day counts",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "fail"
+      }
+    },
+    {
+      "name": "required_funding_expiry_not_hidden_by_later_application",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "apply",
+            "kind": "application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          },
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2001-01-01",
+              "timezone": null,
+              "value": "2001-01-01"
+            },
+            "id": "travel-grant",
+            "kind": "funding",
+            "label": "Travel grant application",
+            "required": false,
+            "state": {
+              "days": -9422,
+              "precision": "date",
+              "state": "expired",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "school",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "deadline:travel-grant",
+            "reason": {
+              "days": -9422,
+              "precision": "date",
+              "state": "expired",
+              "timezone_known": false
+            },
+            "state": "fail"
+          },
+          {
+            "name": "funding",
+            "reason": "Source-backed participation costs are covered or explicitly not applicable; award eligibility and availability remain separate",
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "fail"
+      }
+    },
+    {
+      "name": "optional_old_funding_does_not_expire_open_admission",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "apply",
+            "kind": "application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          },
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2001-01-01",
+              "timezone": null,
+              "value": "2001-01-01"
+            },
+            "id": "travel-grant",
+            "kind": "funding",
+            "label": "Travel grant application",
+            "required": false,
+            "state": {
+              "days": -9422,
+              "precision": "date",
+              "state": "expired",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "school",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "open",
+            "state": "pass"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "pass"
+      }
+    },
+    {
+      "name": "upcoming_call_with_future_date_is_not_open_pass",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": 793,
+          "precision": "date",
+          "state": "open",
+          "timezone_known": false
+        },
+        "deadlines": [
+          {
+            "deadline": {
+              "precision": "date",
+              "raw": "2028-12-20",
+              "timezone": null,
+              "value": "2028-12-20"
+            },
+            "id": "application-primary",
+            "kind": "application",
+            "label": "Application",
+            "required": true,
+            "state": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            }
+          }
+        ],
+        "family": "school",
+        "gates": [
+          {
+            "name": "application_status",
+            "reason": "Applications are not yet open",
+            "state": "unknown"
+          },
+          {
+            "name": "deadline",
+            "reason": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "state": "pass"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "Requirements have been explicitly reviewed",
+            "state": "pass"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "unknown"
+      }
+    },
+    {
+      "name": "unknown_timezone_cutoff_is_skipped",
+      "state": "PASS",
+      "detail": {
+        "events": 2,
+        "path": "/tmp/research-roost-opportunity-check-h1y98mhc/calendar.ics",
+        "skipped_unknown_deadlines": 1
+      }
+    },
+    {
+      "name": "calendar_contains_two_known_named_cutoffs",
+      "state": "PASS",
+      "detail": "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Research Roost//Research Opportunities//EN\nCALSCALE:GREGORIAN\nBEGIN:VEVENT\nUID:deadline-97df9e0c95db6c32-fd0dcf7e03cd@phd-search.local\nDTSTAMP:20261019T190521Z\nDTSTART:20281120T090000Z\nSUMMARY:Travel grant deadline: Synthetic winter_school 20\nDESCRIPTION:Original deadline: 2028-11-20T12:00:00+03:00\\; kind=funding\\; confirm the institution's timezone and cutoff.\nURL:https://fixtures.invalid/opportunity/20\nEND:VEVENT\nBEGIN:VEVENT\nUID:deadline-97df9e0c95db6c32-9b277a5429a3@phd-search.local\nDTSTAMP:20261019T190521Z\nDTSTART;VALUE=DATE:20281205\nDTEND;VALUE=DATE:20281206\nSUMMARY:Registration deadline: Synthetic winter_school 20\nDESCRIPTION:Original deadline: 2028-12-05\\; kind=registration\\; confirm the institution's timezone and cutoff.\nURL:https://fixtures.invalid/opportunity/20\nEND:VEVENT\nEND:VCALENDAR\n"
+    },
+    {
+      "name": "offset_time_exported_as_exact_utc",
+      "state": "PASS",
+      "detail": "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Research Roost//Research Opportunities//EN\nCALSCALE:GREGORIAN\nBEGIN:VEVENT\nUID:deadline-97df9e0c95db6c32-fd0dcf7e03cd@phd-search.local\nDTSTAMP:20261019T190521Z\nDTSTART:20281120T090000Z\nSUMMARY:Travel grant deadline: Synthetic winter_school 20\nDESCRIPTION:Original deadline: 2028-11-20T12:00:00+03:00\\; kind=funding\\; confirm the institution's timezone and cutoff.\nURL:https://fixtures.invalid/opportunity/20\nEND:VEVENT\nBEGIN:VEVENT\nUID:deadline-97df9e0c95db6c32-9b277a5429a3@phd-search.local\nDTSTAMP:20261019T190521Z\nDTSTART;VALUE=DATE:20281205\nDTEND;VALUE=DATE:20281206\nSUMMARY:Registration deadline: Synthetic winter_school 20\nDESCRIPTION:Original deadline: 2028-12-05\\; kind=registration\\; confirm the institution's timezone and cutoff.\nURL:https://fixtures.invalid/opportunity/20\nEND:VEVENT\nEND:VCALENDAR\n"
+    },
+    {
+      "name": "date_only_remains_all_day",
+      "state": "PASS",
+      "detail": "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Research Roost//Research Opportunities//EN\nCALSCALE:GREGORIAN\nBEGIN:VEVENT\nUID:deadline-97df9e0c95db6c32-fd0dcf7e03cd@phd-search.local\nDTSTAMP:20261019T190521Z\nDTSTART:20281120T090000Z\nSUMMARY:Travel grant deadline: Synthetic winter_school 20\nDESCRIPTION:Original deadline: 2028-11-20T12:00:00+03:00\\; kind=funding\\; confirm the institution's timezone and cutoff.\nURL:https://fixtures.invalid/opportunity/20\nEND:VEVENT\nBEGIN:VEVENT\nUID:deadline-97df9e0c95db6c32-9b277a5429a3@phd-search.local\nDTSTAMP:20261019T190521Z\nDTSTART;VALUE=DATE:20281205\nDTEND;VALUE=DATE:20281206\nSUMMARY:Registration deadline: Synthetic winter_school 20\nDESCRIPTION:Original deadline: 2028-12-05\\; kind=registration\\; confirm the institution's timezone and cutoff.\nURL:https://fixtures.invalid/opportunity/20\nEND:VEVENT\nEND:VCALENDAR\n"
+    },
+    {
+      "name": "unknown_zone_never_fabricated_as_midnight_or_noon_utc",
+      "state": "PASS",
+      "detail": "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Research Roost//Research Opportunities//EN\nCALSCALE:GREGORIAN\nBEGIN:VEVENT\nUID:deadline-97df9e0c95db6c32-fd0dcf7e03cd@phd-search.local\nDTSTAMP:20261019T190521Z\nDTSTART:20281120T090000Z\nSUMMARY:Travel grant deadline: Synthetic winter_school 20\nDESCRIPTION:Original deadline: 2028-11-20T12:00:00+03:00\\; kind=funding\\; confirm the institution's timezone and cutoff.\nURL:https://fixtures.invalid/opportunity/20\nEND:VEVENT\nBEGIN:VEVENT\nUID:deadline-97df9e0c95db6c32-9b277a5429a3@phd-search.local\nDTSTAMP:20261019T190521Z\nDTSTART;VALUE=DATE:20281205\nDTEND;VALUE=DATE:20281206\nSUMMARY:Registration deadline: Synthetic winter_school 20\nDESCRIPTION:Original deadline: 2028-12-05\\; kind=registration\\; confirm the institution's timezone and cutoff.\nURL:https://fixtures.invalid/opportunity/20\nEND:VEVENT\nEND:VCALENDAR\n"
+    },
+    {
+      "name": "same_url_distinct_editions_have_distinct_ids",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "same_edition_repeat_deduplicates",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "edition_preserves_original_url:902f70d1817d545b",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "edition_preserves_original_url:5d384afe6e60579f",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "ambiguous_shared_url_requires_id",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "both_editions_remain_in_list",
+      "state": "PASS",
+      "detail": [
+        {
+          "edition": "2029",
+          "family": "school",
+          "id": "5d384afe6e60579f",
+          "institution": null,
+          "integrity": "posting_guard: clean",
+          "last_seen": "2026-10-19T19:05:21+00:00",
+          "opportunity_type": "summer_school",
+          "session_id": null,
+          "snapshot_sha256": "196e146b60edfe26e745e1932447838d1ba064ae32825f4c973a669954e56671",
+          "status": "new",
+          "title": "Synthetic summer_school 23",
+          "url": "https://fixtures.invalid/annual-school"
+        },
+        {
+          "edition": "2028",
+          "family": "school",
+          "id": "902f70d1817d545b",
+          "institution": null,
+          "integrity": "posting_guard: clean",
+          "last_seen": "2026-10-19T19:05:22+00:00",
+          "opportunity_type": "summer_school",
+          "session_id": null,
+          "snapshot_sha256": "5e221c4362f664dd7cfc11f0ee64041959537eac0b48cfa76dc8f1946b3026c6",
+          "status": "new",
+          "title": "Synthetic summer_school 22",
+          "url": "https://fixtures.invalid/annual-school"
+        }
+      ]
+    },
+    {
+      "name": "family_rubric_identity:phd",
+      "state": "PASS",
+      "detail": {
+        "family": "phd",
+        "id": "phd",
+        "version": 1
+      }
+    },
+    {
+      "name": "family_rubric_dimensions:phd",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "opportunity_list_filter:phd",
+      "state": "PASS",
+      "detail": [
+        {
+          "edition": null,
+          "family": "phd",
+          "id": "c8402dcc37850a1c",
+          "institution": null,
+          "integrity": "posting_guard: clean",
+          "last_seen": "2026-10-19T19:05:22+00:00",
+          "opportunity_type": "project",
+          "session_id": null,
+          "snapshot_sha256": "ee1b98c361a402a6208b362a40deb4d05a905f72aec62936947211124ac70c09",
+          "status": "new",
+          "title": "SYNTHETIC-PHD",
+          "url": "https://fixtures.invalid/opportunity/25"
+        }
+      ]
+    },
+    {
+      "name": "rank_filter_and_complete_assessment:phd",
+      "state": "PASS",
+      "detail": [
+        {
+          "assessment_issues": [],
+          "assessment_state": "current",
+          "comparison_group": "phd:v1",
+          "comparison_scope": "Scores are comparable only within the same opportunity family and rubric version",
+          "coverage": 100,
+          "eligibility": {
+            "deadline": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "deadlines": [
+              {
+                "deadline": {
+                  "precision": "date",
+                  "raw": "2028-12-20",
+                  "timezone": null,
+                  "value": "2028-12-20"
+                },
+                "id": "application-primary",
+                "kind": "application",
+                "label": "Application",
+                "required": true,
+                "state": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                }
+              }
+            ],
+            "family": "phd",
+            "gates": [
+              {
+                "name": "application_status",
+                "reason": "open",
+                "state": "pass"
+              },
+              {
+                "name": "deadline",
+                "reason": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                },
+                "state": "pass"
+              },
+              {
+                "name": "requirements_reviewed",
+                "reason": "Requirements have been explicitly reviewed",
+                "state": "pass"
+              }
+            ],
+            "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+            "verdict": "pass"
+          },
+          "family": "phd",
+          "gaps": [],
+          "id": "c8402dcc37850a1c",
+          "institution": null,
+          "last_verified": "2026-10-19T19:05:22+00:00",
+          "recommendation": "awaiting_assessment",
+          "rubric": {
+            "family": "phd",
+            "id": "phd",
+            "version": 1
+          },
+          "rubric_id": "phd",
+          "score": 60.0,
+          "score_interval": [
+            60.0,
+            60.0
+          ],
+          "strengths": [],
+          "title": "SYNTHETIC-PHD",
+          "url": "https://fixtures.invalid/opportunity/25"
+        }
+      ]
+    },
+    {
+      "name": "report_count_filter:phd",
+      "state": "PASS",
+      "detail": {
+        "applications": 0,
+        "family": "phd",
+        "offline": true,
+        "opportunities": 1,
+        "path": "/tmp/research-roost-opportunity-check-h1y98mhc/report-phd.html"
+      }
+    },
+    {
+      "name": "report_has_only_selected_family_title:phd",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "family_rubric_identity:internship",
+      "state": "PASS",
+      "detail": {
+        "family": "internship",
+        "id": "internship",
+        "version": 1
+      }
+    },
+    {
+      "name": "family_rubric_dimensions:internship",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "opportunity_list_filter:internship",
+      "state": "PASS",
+      "detail": [
+        {
+          "edition": null,
+          "family": "internship",
+          "id": "6746b062a386c479",
+          "institution": null,
+          "integrity": "posting_guard: clean",
+          "last_seen": "2026-10-19T19:05:23+00:00",
+          "opportunity_type": "research_internship",
+          "session_id": null,
+          "snapshot_sha256": "bcbc782a0b60b1e1febc31932937fd91324bb9932c5033ee1e2e0ed8998013fe",
+          "status": "new",
+          "title": "SYNTHETIC-INTERNSHIP",
+          "url": "https://fixtures.invalid/opportunity/26"
+        }
+      ]
+    },
+    {
+      "name": "rank_filter_and_complete_assessment:internship",
+      "state": "PASS",
+      "detail": [
+        {
+          "assessment_issues": [],
+          "assessment_state": "current",
+          "comparison_group": "internship:v1",
+          "comparison_scope": "Scores are comparable only within the same opportunity family and rubric version",
+          "coverage": 100,
+          "eligibility": {
+            "deadline": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "deadlines": [
+              {
+                "deadline": {
+                  "precision": "date",
+                  "raw": "2028-12-20",
+                  "timezone": null,
+                  "value": "2028-12-20"
+                },
+                "id": "application-primary",
+                "kind": "application",
+                "label": "Application",
+                "required": true,
+                "state": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                }
+              }
+            ],
+            "family": "internship",
+            "gates": [
+              {
+                "name": "application_status",
+                "reason": "open",
+                "state": "pass"
+              },
+              {
+                "name": "deadline",
+                "reason": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                },
+                "state": "pass"
+              },
+              {
+                "name": "requirements_reviewed",
+                "reason": "Requirements have been explicitly reviewed",
+                "state": "pass"
+              },
+              {
+                "name": "duration",
+                "reason": "Exact inclusive calendar days are compared where sourced; months are not converted into invented day counts",
+                "state": "unknown"
+              }
+            ],
+            "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+            "verdict": "unknown"
+          },
+          "family": "internship",
+          "gaps": [],
+          "id": "6746b062a386c479",
+          "institution": null,
+          "last_verified": "2026-10-19T19:05:23+00:00",
+          "recommendation": "awaiting_assessment",
+          "rubric": {
+            "family": "internship",
+            "id": "internship",
+            "version": 1
+          },
+          "rubric_id": "internship",
+          "score": 60.0,
+          "score_interval": [
+            60.0,
+            60.0
+          ],
+          "strengths": [],
+          "title": "SYNTHETIC-INTERNSHIP",
+          "url": "https://fixtures.invalid/opportunity/26"
+        }
+      ]
+    },
+    {
+      "name": "report_count_filter:internship",
+      "state": "PASS",
+      "detail": {
+        "applications": 0,
+        "family": "internship",
+        "offline": true,
+        "opportunities": 1,
+        "path": "/tmp/research-roost-opportunity-check-h1y98mhc/report-internship.html"
+      }
+    },
+    {
+      "name": "report_has_only_selected_family_title:internship",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "family_rubric_identity:school",
+      "state": "PASS",
+      "detail": {
+        "family": "school",
+        "id": "school",
+        "version": 1
+      }
+    },
+    {
+      "name": "family_rubric_dimensions:school",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "opportunity_list_filter:school",
+      "state": "PASS",
+      "detail": [
+        {
+          "edition": null,
+          "family": "school",
+          "id": "59f3c8217189c81e",
+          "institution": null,
+          "integrity": "posting_guard: clean",
+          "last_seen": "2026-10-19T19:05:23+00:00",
+          "opportunity_type": "summer_school",
+          "session_id": null,
+          "snapshot_sha256": "3363408f8bcf8594ac95c2f25443de6634e4f4fbdef6ea373254fce0aff13ea0",
+          "status": "new",
+          "title": "SYNTHETIC-SCHOOL",
+          "url": "https://fixtures.invalid/opportunity/27"
+        }
+      ]
+    },
+    {
+      "name": "rank_filter_and_complete_assessment:school",
+      "state": "PASS",
+      "detail": [
+        {
+          "assessment_issues": [],
+          "assessment_state": "current",
+          "comparison_group": "school:v1",
+          "comparison_scope": "Scores are comparable only within the same opportunity family and rubric version",
+          "coverage": 100,
+          "eligibility": {
+            "deadline": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "deadlines": [
+              {
+                "deadline": {
+                  "precision": "date",
+                  "raw": "2028-12-20",
+                  "timezone": null,
+                  "value": "2028-12-20"
+                },
+                "id": "application-primary",
+                "kind": "application",
+                "label": "Application",
+                "required": true,
+                "state": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                }
+              }
+            ],
+            "family": "school",
+            "gates": [
+              {
+                "name": "application_status",
+                "reason": "open",
+                "state": "pass"
+              },
+              {
+                "name": "deadline",
+                "reason": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                },
+                "state": "pass"
+              },
+              {
+                "name": "requirements_reviewed",
+                "reason": "Requirements have been explicitly reviewed",
+                "state": "pass"
+              }
+            ],
+            "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+            "verdict": "pass"
+          },
+          "family": "school",
+          "gaps": [],
+          "id": "59f3c8217189c81e",
+          "institution": null,
+          "last_verified": "2026-10-19T19:05:23+00:00",
+          "recommendation": "awaiting_assessment",
+          "rubric": {
+            "family": "school",
+            "id": "school",
+            "version": 1
+          },
+          "rubric_id": "school",
+          "score": 60.0,
+          "score_interval": [
+            60.0,
+            60.0
+          ],
+          "strengths": [],
+          "title": "SYNTHETIC-SCHOOL",
+          "url": "https://fixtures.invalid/opportunity/27"
+        }
+      ]
+    },
+    {
+      "name": "report_count_filter:school",
+      "state": "PASS",
+      "detail": {
+        "applications": 0,
+        "family": "school",
+        "offline": true,
+        "opportunities": 1,
+        "path": "/tmp/research-roost-opportunity-check-h1y98mhc/report-school.html"
+      }
+    },
+    {
+      "name": "report_has_only_selected_family_title:school",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "cross_family_scores_have_distinct_comparison_groups",
+      "state": "PASS",
+      "detail": [
+        "phd:v1",
+        "internship:v1",
+        "school:v1"
+      ]
+    },
+    {
+      "name": "annotation_change_invalidates_previous_assessment",
+      "state": "PASS",
+      "detail": [
+        {
+          "assessment_issues": [
+            "Opportunity data or annotations changed after assessment"
+          ],
+          "assessment_state": "stale",
+          "comparison_group": "school:v1",
+          "comparison_scope": "Scores are comparable only within the same opportunity family and rubric version",
+          "coverage": 0,
+          "eligibility": {
+            "deadline": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "deadlines": [
+              {
+                "deadline": {
+                  "precision": "date",
+                  "raw": "2028-12-20",
+                  "timezone": null,
+                  "value": "2028-12-20"
+                },
+                "id": "application-primary",
+                "kind": "application",
+                "label": "Application",
+                "required": true,
+                "state": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                }
+              }
+            ],
+            "family": "school",
+            "gates": [
+              {
+                "name": "application_status",
+                "reason": "open",
+                "state": "pass"
+              },
+              {
+                "name": "deadline",
+                "reason": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                },
+                "state": "pass"
+              },
+              {
+                "name": "requirements_reviewed",
+                "reason": "The full eligibility requirements have not been reviewed; metadata alone cannot establish eligibility",
+                "state": "unknown"
+              }
+            ],
+            "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+            "verdict": "unknown"
+          },
+          "family": "school",
+          "gaps": [],
+          "id": "59f3c8217189c81e",
+          "institution": null,
+          "last_verified": "2026-10-19T19:05:23+00:00",
+          "rubric": {
+            "family": "school",
+            "id": "school",
+            "version": 1
+          },
+          "rubric_id": "school",
+          "score": null,
+          "score_interval": [
+            0,
+            100
+          ],
+          "strengths": [],
+          "title": "SYNTHETIC-SCHOOL",
+          "url": "https://fixtures.invalid/opportunity/27"
+        }
+      ]
+    },
+    {
+      "name": "old_packet_cannot_import_after_annotation_change",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "profile_change_invalidates_other_family_assessment",
+      "state": "PASS",
+      "detail": [
+        {
+          "assessment_issues": [
+            "Candidate profile changed after assessment"
+          ],
+          "assessment_state": "stale",
+          "comparison_group": "internship:v1",
+          "comparison_scope": "Scores are comparable only within the same opportunity family and rubric version",
+          "coverage": 0,
+          "eligibility": {
+            "deadline": {
+              "days": 793,
+              "precision": "date",
+              "state": "open",
+              "timezone_known": false
+            },
+            "deadlines": [
+              {
+                "deadline": {
+                  "precision": "date",
+                  "raw": "2028-12-20",
+                  "timezone": null,
+                  "value": "2028-12-20"
+                },
+                "id": "application-primary",
+                "kind": "application",
+                "label": "Application",
+                "required": true,
+                "state": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                }
+              }
+            ],
+            "family": "internship",
+            "gates": [
+              {
+                "name": "application_status",
+                "reason": "open",
+                "state": "pass"
+              },
+              {
+                "name": "deadline",
+                "reason": {
+                  "days": 793,
+                  "precision": "date",
+                  "state": "open",
+                  "timezone_known": false
+                },
+                "state": "pass"
+              },
+              {
+                "name": "requirements_reviewed",
+                "reason": "Requirements have been explicitly reviewed",
+                "state": "pass"
+              },
+              {
+                "name": "duration",
+                "reason": "Exact inclusive calendar days are compared where sourced; months are not converted into invented day counts",
+                "state": "unknown"
+              }
+            ],
+            "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+            "verdict": "unknown"
+          },
+          "family": "internship",
+          "gaps": [],
+          "id": "6746b062a386c479",
+          "institution": null,
+          "last_verified": "2026-10-19T19:05:23+00:00",
+          "rubric": {
+            "family": "internship",
+            "id": "internship",
+            "version": 1
+          },
+          "rubric_id": "internship",
+          "score": null,
+          "score_interval": [
+            0,
+            100
+          ],
+          "strengths": [],
+          "title": "SYNTHETIC-INTERNSHIP",
+          "url": "https://fixtures.invalid/opportunity/26"
+        }
+      ]
+    },
+    {
+      "name": "old_snapshot_annotation_rejected_after_source_refresh",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "old_reviewed_requirements_do_not_survive_new_source",
+      "state": "PASS",
+      "detail": {
+        "deadline": {
+          "days": null,
+          "precision": "unknown",
+          "state": "unknown"
+        },
+        "deadlines": [],
+        "family": "phd",
+        "gates": [
+          {
+            "name": "deadline",
+            "reason": {
+              "days": null,
+              "precision": "unknown",
+              "state": "unknown"
+            },
+            "state": "unknown"
+          },
+          {
+            "name": "requirements_reviewed",
+            "reason": "The full eligibility requirements have not been reviewed; metadata alone cannot establish eligibility",
+            "state": "unknown"
+          },
+          {
+            "name": "annotations_current",
+            "reason": "Posting changed after annotations; verify requirements and funding again",
+            "state": "unknown"
+          }
+        ],
+        "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+        "verdict": "unknown"
+      }
+    },
+    {
+      "name": "school_packet_binds_correct_family",
+      "state": "PASS",
+      "detail": {
+        "family": "school",
+        "id": "school",
+        "version": 1
+      }
+    },
+    {
+      "name": "school_packet_does_not_force_phd_proposal",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "unfinished_school_application_fails",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "allow_unknown_does_not_bypass_pending_review",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "completed_synthetic_school_packet_passes_document_checks",
+      "state": "PASS",
+      "detail": {
+        "application_id": "73465f7113033b8c-main",
+        "checked_at": "2026-10-19T19:05:26+00:00",
+        "checks": [
+          {
+            "name": "opportunity_mode",
+            "reason": "Packet family, type, rubric and deadlines must match the frozen opportunity and rubric",
+            "state": "pass"
+          },
+          {
+            "name": "source_archive",
+            "reason": "Archived profile, posting and opportunity must match their recorded digests",
+            "state": "pass"
+          },
+          {
+            "name": "requirements_source",
+            "state": "pass"
+          },
+          {
+            "issues": [],
+            "name": "motivation.md",
+            "sha256": "96943fb5507a76c3269e41d81c3dea4025bf98d79237a1afc8c4369d58fdc1c2",
+            "state": "pass",
+            "words": 17
+          },
+          {
+            "issues": [],
+            "name": "claim_registry",
+            "scope": "Mechanical source/span consistency; semantic support requires reviewer judgment",
+            "state": "pass"
+          },
+          {
+            "issues": [],
+            "name": "review",
+            "state": "pass"
+          },
+          {
+            "name": "source_currency",
+            "reason": "Compare source/profile changes and create a revised application variant if needed",
+            "state": "pass"
+          },
+          {
+            "detail": {
+              "deadline": {
+                "days": 793,
+                "precision": "date",
+                "state": "open",
+                "timezone_known": false
+              },
+              "deadlines": [
+                {
+                  "deadline": {
+                    "precision": "date",
+                    "raw": "2028-12-20",
+                    "timezone": null,
+                    "value": "2028-12-20"
+                  },
+                  "id": "application-primary",
+                  "kind": "application",
+                  "label": "Application",
+                  "required": true,
+                  "state": {
+                    "days": 793,
+                    "precision": "date",
+                    "state": "open",
+                    "timezone_known": false
+                  }
+                }
+              ],
+              "family": "school",
+              "gates": [
+                {
+                  "name": "application_status",
+                  "reason": "open",
+                  "state": "pass"
+                },
+                {
+                  "name": "deadline",
+                  "reason": {
+                    "days": 793,
+                    "precision": "date",
+                    "state": "open",
+                    "timezone_known": false
+                  },
+                  "state": "pass"
+                },
+                {
+                  "name": "requirements_reviewed",
+                  "reason": "Requirements have been explicitly reviewed",
+                  "state": "pass"
+                }
+              ],
+              "scope": "Only configured preferences and explicit recorded requirements; absence of a gate is not proof of eligibility",
+              "verdict": "pass"
+            },
+            "name": "eligibility",
+            "state": "pass"
+          }
+        ],
+        "document_hashes": {
+          "motivation.md": "96943fb5507a76c3269e41d81c3dea4025bf98d79237a1afc8c4369d58fdc1c2"
+        },
+        "opportunity_family": "school",
+        "rubric": {
+          "family": "school",
+          "id": "school",
+          "version": 1
+        },
+        "state": "pass"
+      }
+    },
+    {
+      "name": "revoked_review_cannot_submit_even_after_drafted",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "failed_submission_does_not_create_submission_archive",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "document_edit_invalidates_old_review_hash",
+      "state": "PASS",
+      "detail": null
+    },
+    {
+      "name": "production_sources_stable_during_run",
+      "state": "PASS",
+      "detail": []
+    }
+  ],
+  "legacy_cli_check": {
+    "status": "PASS",
+    "passed": 72,
+    "failed": 0,
+    "commands": 72
+  },
+  "clean_install": {
+    "status": "PASS",
+    "version": "0.2.0a1",
+    "wheel": "research_roost-0.2.0a1-py3-none-any.whl",
+    "wheel_sha256": "7653fac5909d754975d2e4c632c98e82943baf04a9fc1566e4c94d6afb579f73",
+    "families": [
+      "internship",
+      "phd",
+      "school"
+    ],
+    "outside_checkout": true
+  },
+  "workflows": 18,
+  "database_schema": 2,
+  "profile_schema": 1,
+  "source_schema": 1,
+  "live_smoke": [
+    {
+      "url": "https://eee.epfl.ch/",
+      "exit_code": 0,
+      "family_after_source_annotation": null,
+      "observation": "Official programme/eligibility page; no current recruitment or candidate eligibility certified"
+    },
+    {
+      "url": "https://shs.univie.ac.at/winter-school/",
+      "exit_code": 0,
+      "family_after_source_annotation": "school",
+      "observation": "Official programme/eligibility page; no current recruitment or candidate eligibility certified"
+    },
+    {
+      "url": "https://eee.epfl.ch/selection-criteria/",
+      "exit_code": 0,
+      "family_after_source_annotation": "internship",
+      "observation": "Official programme/eligibility page; no current recruitment or candidate eligibility certified"
+    }
+  ],
+  "source_sha256": {
+    "phd_search/__init__.py": "ab0967bfb7486c65219d295ad75347c223fa3e9f2ff7b3b44ecd6c66f64c1ab9",
+    "phd_search/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "phd_search/applications.py": "4abaea267d630c62409624955a0030b2b3d035b3ef68aff58bcb7eb525975fd4",
+    "phd_search/assessment.py": "9874b627ceb6e05b7b8dbfdf10c0b4075cd392d5a291e57ea9979167f470bd94",
+    "phd_search/cli.py": "0ddb844eab2d8a8ba17b0296c59203f9bb5ec054dfe420fb8de8b46e8bcb847a",
+    "phd_search/core.py": "d9ef101ee5ac9135b99a1587907b81c591d76b3cf2db915d0ac6952951fdbf35",
+    "phd_search/evidence.py": "3a832134812ef245f68b5decd2c046bea0ca0acc3dc609a29d43e79b102e3d0a",
+    "phd_search/exports.py": "bc6f57951ae3d2d925b8c5e316b5f16d8521a88e7f7cf8babb8cea393ef00c1c",
+    "phd_search/extract.py": "9ed01c075c9acd39ed9cdce1f83a8074a84ea27228d4676f6183c46b7d355030",
+    "phd_search/integrations.py": "914b70311c5ad3be900792e8c8d83026339483049d0f28abae9b7654f74d4932",
+    "phd_search/network.py": "47a222940d187e239f74682a85280364e5a00d92db69b8eed1f86e2d273ff78f",
+    "phd_search/opportunities.py": "6aff50dd20ffcdbcf0c34ad47cc04a5cd8f9797226d1a98d0cc0293ab3428936",
+    "phd_search/profile.py": "2dfc2ca2e814f9b050b6eb28b1c46e7fde91efd00746f7269b33c6090e8fd2a4",
+    "phd_search/render.py": "2812b2f6287b95daa9a474d78f486d94d08919f9652afbb9f4470e6a4b9a1fb1",
+    "phd_search/research.py": "dc73b34312ffd89e06de528067ac6724a3c273e1e064e2e406371e3f14133567",
+    "phd_search/resources/profile.example.json": "c97c5a3870eeb9d0ecf674f123adb34da4229f317cf77fc7a898b70d4cad1161",
+    "phd_search/resources/sources.example.json": "4989a00dcbcd85bfdfec400bc5d4a695024550be812ce5fd34bab118ba3b2f11",
+    "phd_search/resources/templates/motivation.md": "81650207cbd2e673f18f94bcd67c8110c4b1b34d9e8dbdbb5952e724f594f9b3",
+    "phd_search/resources/templates/portal_answers.md": "50820216c31a9fd782723ff80558506ee1ba0de22f5dd813612aa262e5b0e998",
+    "phd_search/resources/templates/portfolio.md": "8dc36d3ac1ba456b0c757b92ad5b3dcc47ff12faf64d48d6aa6dc17f5043805b",
+    "phd_search/resources/templates/proposal.md": "962f966783afce84d045060956ebe649ddacba60b1bbae10b583cef543d3c08c",
+    "phd_search/resources/templates/research_statement.md": "3c6ff5876e5b1ed1acd10dd7d1729a7b920244ec6bc4e57e3405d3abb9153726",
+    "phd_search/resources/templates/statement_of_purpose.md": "3ae6fc131256114d03d3291fdd5dd261cc582fe4fb97154a9f31da1a929a4878",
+    "phd_search/resources/templates/supervisor_email.md": "685ee5b9af39d3c6dd47c0efbee16a5ea951958ed44adc7063da72f247be6985",
+    "phd_search/resources/workflows/add-portal.md": "698556fe0ee1c70be0ed1b872597e99b5f45adbb8fb1e4179e1828f319cc9962",
+    "phd_search/resources/workflows/add-template.md": "b446e31b96f218498a093a3d45b41fe489d89c1a80c08d59514ce4ce8e71c5e8",
+    "phd_search/resources/workflows/apply.md": "47e39d30142248cae1f803d0d8e63606c5f97c753e9448c415e7d3c93b996c14",
+    "phd_search/resources/workflows/expand.md": "a4d8dde2ef859d7e0fdd5839ea391912732c1c3c032bed59ac42bbf28bbb93e6",
+    "phd_search/resources/workflows/funding.md": "31d754414517e83500af7f4fde31134eaf1f074544b036931a54f9fd55589af6",
+    "phd_search/resources/workflows/gmail-sync.md": "a706fea5bb9d03f518790a4251c6de6fe8c27d8ee4f61b3018cda7b244e38228",
+    "phd_search/resources/workflows/html-report.md": "8944de095a6c9580be966b3d263a1c2c208001016c3000451b4743ceb7262ab7",
+    "phd_search/resources/workflows/internship.md": "382430ec485d0615848ddd0dbded58011e3b1d67440289dedcf72936eba17f9e",
+    "phd_search/resources/workflows/interview.md": "bc9c5aedcd0a289de91df601947619bcd641960e2de75fc62a8bf1589fd1e57f",
+    "phd_search/resources/workflows/notion-sync.md": "e5cf572456b0bcc3f16eb9027c9f86ad21bce238b075b2132add93a215b8fc28",
+    "phd_search/resources/workflows/outcome.md": "3dcebbca38572f40230be7f052286b4e3d7d195ebaea3be5ebc0f33fa8942a23",
+    "phd_search/resources/workflows/rank.md": "10640ecaa364bf7d19e9afc1fefe202cb7ee4c5bc0c26c4acee1c8b65b69b01a",
+    "phd_search/resources/workflows/reset.md": "172cd0a9a5149865785e55b276de30360e5b74e87f796b032551e1a1d6733956",
+    "phd_search/resources/workflows/school.md": "3e4a1e574b88c2d6b181133175a4a6338a42f59751a51b12895572000bdc0f8f",
+    "phd_search/resources/workflows/scrape.md": "58c8e4c8ec1e2180e81e3f8c2f8acff7ea91f045dc23ab3b255543f6128777fb",
+    "phd_search/resources/workflows/setup.md": "d6b4a84b63635c235bef3fa8b0e526d0b7a247f3162d2baf0c227ae52b5d7647",
+    "phd_search/resources/workflows/supervisor.md": "587eb6a43557726db092ee85dfd7438400db8754071ccfac265c7c410abbda29",
+    "phd_search/resources/workflows/upskill.md": "bffaa5a0666886c5c764b9931bf16768be63df1e43b4a28310f9e12935bb0b82",
+    "phd_search/sources.py": "601d5344e54c60f6057efec2bd5284e8973a788566e425ecff8d1c36c8aa658d",
+    "phd_search/store.py": "761513b0dda39c6d9f1f4f27cf67d5adc30707c9810ae0ee19814c6d2c526ed9",
+    "phd_search/vendor/LICENSE": "accbf0accb87b7b905dd7ee0c7013075f0453637acf354ddae6fc0e4d8282e8e",
+    "phd_search/vendor/__init__.py": "77b3a95a44582e0dd1b20054c6617fd18b322a784253c4ddec99020ca993c21f",
+    "phd_search/vendor/posting_guard.py": "6c55c0d220fc94b75967b99c67d032521e83f86f6a7f79c3c4e0f54bac15e2f7",
+    "research_roost/__init__.py": "1589c6b00a6046042532e174803f5bffdcba57846261567f4a9eddcbaff67ee3",
+    "research_roost/__main__.py": "e6d8f6ec3c9f9a3bb7240b03338269ffeee7340058ca6285ef4a4a71225b5c97",
+    "pyproject.toml": "107206cbb6aae12ec0508cfeee33b750b9310fe08ed97d684345efb7955dd2ad",
+    "roost": "6d97f123ac331a3f66bbae701decc334b6c6d3aade5637633fb8ebfde773a5ef",
+    "phd": "535edd0340488325f2d41a14f58f227e84cf8f0047129f4e4623fb53acb60c66",
+    "tools/opportunity_check.py": "082a8df6997772ae9373f3c3aeff5099f322dcd9a4c4ad852fbdd92114bedd91",
+    "tools/independent_check.py": "9c7752e10c813ea746e4c8ada102470a4b35e4d2f7eb541e5221253df8470d31",
+    "tools/modes_demo.py": "a610de4a580d769a2dec7c6e7afcd28fe8c4ead43e7e3a3f0a6765fa2da3e919",
+    "assets/mascot/owl-typing.gif": "ec558c28eab4783a4e27d2fb020aa4a9680fdce4b57fb21f9f2331c5b7c3b459"
+  },
+  "limits": [
+    "Local Python 3.12.3 run; remote CI matrix not executed.",
+    "No PDF compiler or PDF visual inspection in this round; editable HTML/LaTeX rendered for both new modes.",
+    "New discovery entries hand work to the agent/browser, not automatic worldwide scraping.",
+    "Synthetic review and recorded fictional submissions do not certify scientific quality, admission or actual external submission.",
+    "Fresh reviewer authored discovery/workflows; author independence applies to the separately authored eligibility/storage/exports/application code.",
+    "Personal CV/profile/documents are excluded from the release; no messages, applications or publications sent."
+  ]
+}

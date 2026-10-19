@@ -1,0 +1,676 @@
+{
+  "checked_at": "2026-10-19T17:35:41+00:00",
+  "version": "0.1.0a1",
+  "source_fingerprint": {
+    "sha256": "098430d6e8bd7c751b02d3d7a3ff2b803cb106053d2bf4cc266f5f3a3f98da64",
+    "method": "sorted packaged Python/workflow/template/schema files plus launcher, pyproject and README; path NUL contents NUL",
+    "files": 46,
+    "built_source_matches_current": true
+  },
+  "audited_findings": {
+    "resolved": 10,
+    "previously_P1": 5,
+    "previously_P2": 5,
+    "remaining_confirmed_from_these_audits": 0
+  },
+  "unit_tests": {
+    "successful": true,
+    "tests": 81,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 26.925,
+    "python": "3.12.3"
+  },
+  "audit_reproductions": {
+    "retained": {
+      "stale_annotations": {
+        "current_source_contains_full_funding": true,
+        "gates": [
+          {
+            "name": "funding",
+            "state": "unknown",
+            "reason": "Funding and fee coverage are not verified"
+          },
+          {
+            "name": "annotations_current",
+            "state": "unknown",
+            "reason": "Posting changed after annotations; verify requirements and funding again"
+          }
+        ],
+        "rank_results": 1
+      },
+      "external_assessment_evidence": {
+        "before": {
+          "assessment_state": "current",
+          "coverage": 5,
+          "score_interval": [
+            5.0,
+            100.0
+          ]
+        },
+        "after_deletion": {
+          "assessment_state": "stale",
+          "coverage": 0,
+          "score_interval": [
+            0,
+            100
+          ]
+        }
+      },
+      "submitted_archive": {
+        "rejected": true,
+        "error": "Submission archive file is missing or its digest changed: profile.snapshot.json",
+        "tampered_fact_used": false,
+        "manifest_digest_disagrees": true
+      },
+      "robots_longest_allow": {
+        "proper_longest_match": true,
+        "actual": "allowed"
+      },
+      "redirected_304": {
+        "returned_url": "http://127.0.0.1:37433/search",
+        "requested_url": "http://127.0.0.1:37433/job/1",
+        "cached": false,
+        "body": "<html><h1>Doctoral offer</h1></html>",
+        "server_saw": [
+          {
+            "path": "/robots.txt",
+            "if_none_match": null
+          },
+          {
+            "path": "/job/1",
+            "if_none_match": null
+          },
+          {
+            "path": "/job/1",
+            "if_none_match": "\"v1\""
+          },
+          {
+            "path": "/search",
+            "if_none_match": null
+          }
+        ]
+      },
+      "redirected_304_full_scrape": {
+        "first_status": "ok",
+        "expired_detail_status": "partial",
+        "expired_detail_matches": [],
+        "errors": [
+          {
+            "stage": "detail",
+            "url": "http://127.0.0.1:37433/job/1",
+            "message": "Posting redirected to a different page; original identity is not established: http://127.0.0.1:37433/job/1 → http://127.0.0.1:37433/search"
+          }
+        ],
+        "server_saw": [
+          {
+            "path": "/robots.txt",
+            "if_none_match": null
+          },
+          {
+            "path": "/cachelist",
+            "if_none_match": null
+          },
+          {
+            "path": "/job/1",
+            "if_none_match": null
+          },
+          {
+            "path": "/cachelist",
+            "if_none_match": null
+          },
+          {
+            "path": "/job/1",
+            "if_none_match": "\"v1\""
+          },
+          {
+            "path": "/search",
+            "if_none_match": null
+          }
+        ]
+      },
+      "malformed_source_aborts_independent_sources": {
+        "result": {
+          "query": "",
+          "sources": [
+            {
+              "source": "bad",
+              "pages": [
+                {
+                  "url": "http://127.0.0.1:37433/badlist",
+                  "fetched_at": "2026-10-19T17:32:30+00:00",
+                  "bytes": 62,
+                  "query_mode": "local"
+                }
+              ],
+              "discovered": 1,
+              "attempted": 1,
+              "stored": [],
+              "matches": [],
+              "errors": [
+                {
+                  "stage": "detail",
+                  "url": "http://127.0.0.1:37433/badjob/1",
+                  "message": "Deadline must be a string or null"
+                }
+              ],
+              "coverage": "bounded_sample",
+              "not_an_exhaustive_search": true,
+              "status": "partial"
+            },
+            {
+              "source": "good",
+              "pages": [
+                {
+                  "url": "http://127.0.0.1:37433/goodlist",
+                  "fetched_at": "2026-10-19T17:32:31+00:00",
+                  "bytes": 58,
+                  "query_mode": "local"
+                }
+              ],
+              "discovered": 1,
+              "attempted": 1,
+              "stored": [
+                "4da596c41467ea6b"
+              ],
+              "matches": [
+                "4da596c41467ea6b"
+              ],
+              "errors": [],
+              "coverage": "bounded_sample",
+              "not_an_exhaustive_search": true,
+              "status": "ok"
+            }
+          ],
+          "matches": [
+            {
+              "id": "4da596c41467ea6b",
+              "title": "Doctoral offer",
+              "url": "http://127.0.0.1:37433/goodjob/1"
+            }
+          ],
+          "created_at": "2026-10-19T17:32:31+00:00"
+        },
+        "good_source_was_requested": true,
+        "scrape_runs_saved": 1,
+        "server_saw": [
+          {
+            "path": "/robots.txt",
+            "if_none_match": null
+          },
+          {
+            "path": "/badlist",
+            "if_none_match": null
+          },
+          {
+            "path": "/badjob/1",
+            "if_none_match": null
+          },
+          {
+            "path": "/goodlist",
+            "if_none_match": null
+          },
+          {
+            "path": "/goodjob/1",
+            "if_none_match": null
+          }
+        ]
+      }
+    },
+    "new": {
+      "original_document_collision": {
+        "registered_paths_collide": false,
+        "first_digest": "4b8f48aa2330b14fdf88310b2b9e87171a82fbdfcbac2ecd93bea959c02d8ce8",
+        "stored_digest": "4b8f48aa2330b14fdf88310b2b9e87171a82fbdfcbac2ecd93bea959c02d8ce8",
+        "second_digest": "7ee1a42d4e543e90ddb2ecb9c68839a9185ad2e4e2682283890628ea8b52b9e9",
+        "first_bytes_preserved_in_workspace": true,
+        "external_source_files_preserved": true
+      },
+      "reset_archive_outside_ignore": {
+        "archive_name": "workspace-archived-2026-10-19T17-32-32+00-00-8a360b6d4b080ad9",
+        "archive_profile_ignored": true,
+        "untracked_paths": [
+          "?? .gitignore"
+        ],
+        "commit_or_publication_performed": false
+      },
+      "followup_after_recent_invitation": {
+        "invitation_date": "2026-10-19",
+        "scheduled_interview": "2026-10-20T12:00:00+00:00",
+        "suggestion_count": 0,
+        "reported_days_since_contact": null,
+        "draft": null,
+        "messages_sent": false
+      }
+    },
+    "checks": {
+      "old_annotations_do_not_veto": true,
+      "external_evidence_rechecked": true,
+      "tampered_archive_rejected": true,
+      "specific_robots_allow": true,
+      "redirect_cache_cannot_resurrect_advert": true,
+      "malformed_source_local_failure": true,
+      "both_originals_preserved": true,
+      "private_reset_archive": true,
+      "no_premature_followup": true,
+      "launcher_workspace_priority": true
+    },
+    "launcher": [
+      {
+        "arguments": [
+          "init"
+        ],
+        "expected": "/tmp/phd-search-fixes-20261019-jg0m56re/launcher-environment-workspace",
+        "actual": "/tmp/phd-search-fixes-20261019-jg0m56re/launcher-environment-workspace",
+        "passed": true
+      },
+      {
+        "arguments": [
+          "--workspace",
+          "/tmp/phd-search-fixes-20261019-jg0m56re/launcher-explicit-workspace",
+          "init"
+        ],
+        "expected": "/tmp/phd-search-fixes-20261019-jg0m56re/launcher-explicit-workspace",
+        "actual": "/tmp/phd-search-fixes-20261019-jg0m56re/launcher-explicit-workspace",
+        "passed": true
+      }
+    ]
+  },
+  "clean_source_and_isolated_wheel": {
+    "source": "/tmp/phd-search-fixes-20261019-jg0m56re/source",
+    "clean_source_init": {
+      "created": [
+        ".gitignore",
+        "profile.json",
+        "sources.json",
+        "templates.json"
+      ],
+      "existing_data_preserved": true,
+      "next": "Fill profile.json from confirmed source documents; read ./phd workflow setup",
+      "workspace": "/tmp/phd-search-fixes-20261019-jg0m56re/source/workspace"
+    },
+    "clean_source_doctor": {
+      "database_integrity": "ok",
+      "network_checked": false,
+      "profile_errors": [],
+      "profile_personalised": false,
+      "profile_valid": true,
+      "python": "3.12.3",
+      "sources": 5,
+      "tools": {
+        "lualatex": null,
+        "pdfinfo": "/usr/bin/pdfinfo",
+        "pdftotext": "/usr/bin/pdftotext",
+        "tectonic": "/path/to/tectonic",
+        "xelatex": null
+      },
+      "version": "0.1.0a1",
+      "workspace": "/tmp/phd-search-fixes-20261019-jg0m56re/source/workspace"
+    },
+    "blank_search_plan_state": "profile_required",
+    "synthetic_document": {
+      "category": "cv",
+      "extraction": "available",
+      "file": "documents/cv/30abee643134c5ba0510a7fd6fc131bafdd87d5a3f9558818eed9ce62f381db1-synthetic-cv.txt-887d432e/original.txt",
+      "imported_at": "2026-10-19T17:32:29+00:00",
+      "integrity": {
+        "hidden_blocks": [],
+        "hidden_urls": [],
+        "homoglyph_runs": [],
+        "instruction_like": [],
+        "invisible_chars": {},
+        "invisible_flagged": 0,
+        "verdict": "posting_guard: clean",
+        "visible_url_count": 0
+      },
+      "original_name": "synthetic-cv.txt",
+      "sha256": "30abee643134c5ba0510a7fd6fc131bafdd87d5a3f9558818eed9ce62f381db1",
+      "text_file": "documents/cv/30abee643134c5ba0510a7fd6fc131bafdd87d5a3f9558818eed9ce62f381db1-synthetic-cv.txt-887d432e/extracted.txt",
+      "text_sha256": "318bd63f66b1525e90f1418c7ad4184d2f5acd114fd443c1f468df3fce22bcce"
+    },
+    "wheel": "/tmp/phd-search-fixes-20261019-jg0m56re/wheel/phd_search-0.1.0a1-py3-none-any.whl",
+    "installed_version": "0.1.0a1",
+    "installed_module": "/tmp/phd-search-fixes-20261019-jg0m56re/venv/lib/python3.12/site-packages/phd_search/__init__.py",
+    "outside_checkout": true,
+    "installed_init": {
+      "created": [
+        ".gitignore",
+        "profile.json",
+        "sources.json",
+        "templates.json"
+      ],
+      "existing_data_preserved": true,
+      "next": "Fill profile.json from confirmed source documents; read ./phd workflow setup",
+      "workspace": "/tmp/phd-search-fixes-20261019-jg0m56re/installed-workspace"
+    },
+    "installed_doctor": {
+      "database_integrity": "ok",
+      "network_checked": false,
+      "profile_errors": [],
+      "profile_personalised": false,
+      "profile_valid": true,
+      "python": "3.12.3",
+      "sources": 5,
+      "tools": {
+        "lualatex": null,
+        "pdfinfo": "/usr/bin/pdfinfo",
+        "pdftotext": "/usr/bin/pdftotext",
+        "tectonic": "/path/to/tectonic",
+        "xelatex": null
+      },
+      "version": "0.1.0a1",
+      "workspace": "/tmp/phd-search-fixes-20261019-jg0m56re/installed-workspace"
+    },
+    "installed_workflow": "setup",
+    "full_agent_distribution": "source checkout; wheel CLI/resources scope documented",
+    "steps": [
+      {
+        "arguments": [
+          "/usr/bin/python3",
+          "tools/check_workflows.py"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re/source",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "bash",
+          "phd",
+          "init"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re/source",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "bash",
+          "phd",
+          "doctor"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re/source",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "bash",
+          "phd",
+          "search-plan"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re/source",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "bash",
+          "phd",
+          "profile",
+          "document",
+          "--file",
+          "/tmp/phd-search-fixes-20261019-jg0m56re/synthetic-cv.txt",
+          "--category",
+          "cv"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re/source",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "uv",
+          "build",
+          "--wheel",
+          "--out-dir",
+          "/tmp/phd-search-fixes-20261019-jg0m56re/wheel"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re/source",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "uv",
+          "venv",
+          "/tmp/phd-search-fixes-20261019-jg0m56re/venv",
+          "--python",
+          "/usr/bin/python3"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "uv",
+          "pip",
+          "install",
+          "--python",
+          "/tmp/phd-search-fixes-20261019-jg0m56re/venv/bin/python",
+          "--no-deps",
+          "/tmp/phd-search-fixes-20261019-jg0m56re/wheel/phd_search-0.1.0a1-py3-none-any.whl"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "/tmp/phd-search-fixes-20261019-jg0m56re/venv/bin/phd-search",
+          "--version"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "/tmp/phd-search-fixes-20261019-jg0m56re/venv/bin/phd-search",
+          "--workspace",
+          "/tmp/phd-search-fixes-20261019-jg0m56re/installed-workspace",
+          "init"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "/tmp/phd-search-fixes-20261019-jg0m56re/venv/bin/phd-search",
+          "--workspace",
+          "/tmp/phd-search-fixes-20261019-jg0m56re/installed-workspace",
+          "doctor"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "/tmp/phd-search-fixes-20261019-jg0m56re/venv/bin/phd-search",
+          "workflow",
+          "setup"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re",
+        "exit_code": 0
+      },
+      {
+        "arguments": [
+          "/tmp/phd-search-fixes-20261019-jg0m56re/venv/bin/python",
+          "-c",
+          "import phd_search; print(phd_search.__file__)"
+        ],
+        "cwd": "/tmp/phd-search-fixes-20261019-jg0m56re",
+        "exit_code": 0
+      }
+    ]
+  },
+  "wheel_artifact": {
+    "name": "phd_search-0.1.0a1-py3-none-any.whl",
+    "sha256": "c7b86c22175256e6028dd0403ee4ec61e9cad8a657d7ebdd0588b6b6b5c301c8",
+    "bytes": 106747
+  },
+  "fictional_pdf_demo": {
+    "workspace": "/tmp/phd-search-fixes-20261019-jg0m56re/demo-workspace",
+    "report": "/tmp/phd-search-fixes-20261019-jg0m56re/demo-report.html",
+    "verification": "pass",
+    "rendering": {
+      "application_id": "919018eca8f29c70-main",
+      "documents": [
+        {
+          "document": "cv.md",
+          "tex": "/tmp/phd-search-fixes-20261019-jg0m56re/demo-workspace/applications/919018eca8f29c70-main/rendered/cv.tex",
+          "html": "/tmp/phd-search-fixes-20261019-jg0m56re/demo-workspace/applications/919018eca8f29c70-main/rendered/cv.html",
+          "source_sha256": "39af9e0887b19a98b81e73a516c07123846ca07a512fbebc1b13dc98daae1000",
+          "compilation": {
+            "state": "pass",
+            "pdf": "/tmp/phd-search-fixes-20261019-jg0m56re/demo-workspace/applications/919018eca8f29c70-main/rendered/cv.pdf",
+            "engine": "tectonic"
+          }
+        },
+        {
+          "document": "motivation.md",
+          "tex": "/tmp/phd-search-fixes-20261019-jg0m56re/demo-workspace/applications/919018eca8f29c70-main/rendered/motivation.tex",
+          "html": "/tmp/phd-search-fixes-20261019-jg0m56re/demo-workspace/applications/919018eca8f29c70-main/rendered/motivation.html",
+          "source_sha256": "f806dea00c75452f83f8ccd5ba10fcca3ca7533947e512bd0565115755b60e66",
+          "compilation": {
+            "state": "pass",
+            "pdf": "/tmp/phd-search-fixes-20261019-jg0m56re/demo-workspace/applications/919018eca8f29c70-main/rendered/motivation.pdf",
+            "engine": "tectonic"
+          }
+        }
+      ]
+    },
+    "fictional": true,
+    "verified_interview": {
+      "application_id": "919018eca8f29c70-main",
+      "path": "/tmp/phd-search-fixes-20261019-jg0m56re/demo-workspace/applications/919018eca8f29c70-main/interview.md",
+      "basis": "submitted_archive",
+      "state": "preparation_scaffold"
+    }
+  },
+  "pdf_checks": [
+    {
+      "document": "cv.md",
+      "pdfinfo": [
+        "Pages:           1",
+        "Page size:       595.28 x 841.89 pts (A4)"
+      ],
+      "text_characters": 597,
+      "candidate_text_present": true,
+      "image": "/tmp/phd-search-fixes-20261019-jg0m56re/cv-page.png"
+    },
+    {
+      "document": "motivation.md",
+      "pdfinfo": [
+        "Pages:           1",
+        "Page size:       595.28 x 841.89 pts (A4)"
+      ],
+      "text_characters": 1044,
+      "candidate_text_present": true,
+      "image": "/tmp/phd-search-fixes-20261019-jg0m56re/motivation-page.png"
+    }
+  ],
+  "pdf_visual_inspection": "Both rasterised first pages inspected; no clipping or missing glyphs observed on exercised Latin-text path",
+  "live_source_probe": {
+    "checked_at": "2026-10-19T17:33:23+00:00",
+    "evidence_workspace": null,
+    "health": [
+      {
+        "checked_at": "2026-10-19T17:33:24+00:00",
+        "id": "euraxess",
+        "reason": "robots.txt disallows this URL: https://euraxess.ec.europa.eu/jobs/search?f%5B0%5D=job_research_profile%3A447",
+        "state": "unavailable"
+      },
+      {
+        "checked_at": "2026-10-19T17:33:25+00:00",
+        "id": "academicpositions",
+        "reason": "Fetch failed for https://academicpositions.com/jobs/position/phd: HTTP Error 403: Forbidden",
+        "state": "unavailable"
+      },
+      {
+        "bytes": 300251,
+        "fetched_at": "2026-10-19T17:33:28+00:00",
+        "id": "jobs-ac-uk",
+        "links": 25,
+        "query_mode": "local",
+        "state": "ok",
+        "url": "https://www.jobs.ac.uk/search/?jobTypeFacet%5B%5D=phds"
+      }
+    ],
+    "ingested": [
+      {
+        "country": "United Kingdom",
+        "deadline": {
+          "precision": "date",
+          "raw": "15th November 2026",
+          "timezone": null,
+          "value": "2026-11-15"
+        },
+        "description_characters": 4571,
+        "id": "5c865836960ae8b4",
+        "institution": "Northeastern University London",
+        "method": "jsonld",
+        "sha256": "0bdaa11306a25a2f478cbdf2f46cec4f520a774acff46df8d1495748566eee07",
+        "title": "PhD Studentship in Computer Science - Algorithms/Hardware Co-Design for Bayesian and Ising Models (Fully Funded)",
+        "url": "https://www.jobs.ac.uk/job/DTI287/phd-studentship-in-computer-science-algorithms-hardware-co-design-for-bayesian-and-ising-models-fully-funded"
+      }
+    ],
+    "scope": "Discovery for three boards and at most one detail attempt for each enabled direct source; not exhaustive compatibility",
+    "scrape": {
+      "created_at": "2026-10-19T17:33:30+00:00",
+      "matches": [
+        {
+          "id": "5c865836960ae8b4",
+          "title": "PhD Studentship in Computer Science - Algorithms/Hardware Co-Design for Bayesian and Ising Models (Fully Funded)",
+          "url": "https://www.jobs.ac.uk/job/DTI287/phd-studentship-in-computer-science-algorithms-hardware-co-design-for-bayesian-and-ising-models-fully-funded"
+        }
+      ],
+      "query": "",
+      "sources": [
+        {
+          "attempted": 0,
+          "coverage": "bounded_sample",
+          "discovered": 0,
+          "errors": [
+            {
+              "message": "robots.txt disallows this URL: https://euraxess.ec.europa.eu/jobs/search?f%5B0%5D=job_research_profile%3A447",
+              "stage": "listing"
+            }
+          ],
+          "matches": [],
+          "not_an_exhaustive_search": true,
+          "pages": [],
+          "source": "euraxess",
+          "status": "partial",
+          "stored": []
+        },
+        {
+          "attempted": 1,
+          "coverage": "bounded_sample",
+          "discovered": 25,
+          "errors": [],
+          "matches": [
+            "5c865836960ae8b4"
+          ],
+          "not_an_exhaustive_search": true,
+          "pages": [
+            {
+              "bytes": 300251,
+              "fetched_at": "2026-10-19T17:33:29+00:00",
+              "query_mode": "local",
+              "url": "https://www.jobs.ac.uk/search/?jobTypeFacet%5B%5D=phds"
+            }
+          ],
+          "source": "jobs-ac-uk",
+          "status": "ok",
+          "stored": [
+            "5c865836960ae8b4"
+          ]
+        }
+      ]
+    }
+  },
+  "release_scope": "Technical alpha with explicit source/agent/distribution limitations",
+  "not_established": [
+    "Stable 1.0 quality",
+    "Real applicant outcomes",
+    "Worldwide search coverage",
+    "Live connected accounts",
+    "Remote CI execution"
+  ],
+  "personal_workspace_modified": false,
+  "external_publication_performed": false
+}
